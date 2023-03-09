@@ -1,6 +1,12 @@
-const getTasks = (req,res) =>{
-    res.send('yoo in the controller')
-}
+const Task = require('../models/taskModel')
+const asyncHandler = require('express-async-handler')
+
+const getTasks = asyncHandler( async (req,res) =>{
+    const tasks = await Task.find({})
+
+    res.send(tasks)
+})
+
 const addTask = (req,res) =>{
     res.send('add task')
 }
