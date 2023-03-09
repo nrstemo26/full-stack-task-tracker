@@ -1,4 +1,4 @@
-const getTask = (req,res) =>{
+const getTasks = (req,res) =>{
     res.send('yoo in the controller')
 }
 const addTask = (req,res) =>{
@@ -13,7 +13,7 @@ const deleteTask = (req,res) =>{
 
 
 module.exports = {
-    getTask,
+    getTasks,
     addTask,
     updateTask,
     deleteTask,
