@@ -17,8 +17,7 @@ const protect = asyncHandler( async (req, res, next) => {
         next();
     }catch(e){
         throw new Error('not authorized for this')
-
     }
 })
 
-module.exports = protect;
+module.exports = { protect };
