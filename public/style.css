@@ -1,25 +1,58 @@
 *{
     box-sizing: border-box;
-    /* navy 1-2-3-4-5 going from light to dark */
     --navy-1: #1973D1;
     --navy-2: #135cc5;
     --navy-3: #0c3baa;
     --navy-4: #061993;
     --navy-5: #010280;
-
-
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* width: 80%; */
+    margin: 0 15%;
+}
+
+input {
+    display:block;
+    width:100%;
+    margin:10px 0;
+    padding:10px;
+}
+
+
+.checkbox-container{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+input[type=checkbox]{
+    width: 20%;
+}
+
+.tasks-main-container{
+    color: #FFFDD0;
+    background-color: var(--navy-5);
+}
 .task-item-container{
-    border: 1px solid red;
+    background-color: #C5C6d0;
+    border-radius: .25rem;
+    padding: .5rem;
+    margin: .5rem;
+    color: black;
+    /* min-width: 80%; confused here */
 }
+
 
 input[type=submit],
 button{
     background-color: var(--navy-2); 
     border: none;
-    padding: .5rem;
-    font-size: 2rem;
+    padding: .75rem;
+    font-size: 1rem;
     border-radius: .75rem;
     cursor: pointer;
     box-shadow: .25rem .25rem .5rem rgba(0,0,0,0.45);
@@ -31,10 +64,10 @@ button{
 input[type=submit]:hover,
 button:hover{
     background-color: var(--navy-1);
-    transform: scale(1.05); 
+    transform: scale(1.01); 
 }
 input[type=submit]:active,
 button:active{
     background-color: var(--navy-2);
-    transform: scale(.95); 
+    transform: scale(.98); 
 }
