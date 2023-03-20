@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker</title>
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Task Tracker</h1>
+    <form id='login' class="login-container">
+        <div>
+            <label for="username">Enter your name: </label>
+            <input type="text" name="name" id="username" value="test">
+            <!-- test@test.com test test -->
+        </div>
+        <div>
+            <label for="email">Enter your email: </label>
+            <input type="text" name="email" id="email" value="test@test.com" >
+        </div>
+        <div>
+            <label for="password">Enter your password: </label>
+            <input type="password" name="password" id="password" value="test">
+        </div>
+        <input type="submit" value="sign in">
+    </form>
+    <p id="token-text">token</p>
+    
+    <button id="get-all-btn">get all tasks</button>
+    <div class="add-task-container">
+       <h2>Add new task</h2>
+       <form id="add-task">
+           <div>
+               <label for="task">Task name: </label>
+               <input type="text" name="task" id="task" required>
+           </div>
+           <div>
+               <label for="complete">Completed? </label>
+               <input type="checkbox" name="complete" id="complete" >
+           </div>
+           <input type="submit" value="add task">
+       </form>
+    </div>
+
+    <h2>Your tasks</h2>
+    <div class="tasks-container">
+        <div class="task-item-container">
+            <h1>homework</h1>
+            <p>id: 234239048fdsf09234</p>
+            <p>complete: true</p>
+            <input type="checkbox" class="completed-task-check" checked="true">
+            <button class="delete-btn">X</button>
+        </div>
+        <div class="task-item-container">
+            <h1>homework</h1>
+            <p>id: 234239048fdsf09234</p>
+            <p>complete: true</p>
+            <input type="checkbox" class="completed-task-check">
+            <button class="delete-btn">X</button>
+        </div>
+        <div class="task-item-container">
+            <h1>homework</h1>
+            <p>id: 234239048fdsf09234</p>
+            <p>complete: true</p>
+            <input type="checkbox" class="completed-task-check">
+            <button class="delete-btn">X</button>
+        </div>
+    </div>
+ 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+</html>

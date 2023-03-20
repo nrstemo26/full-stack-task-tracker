@@ -5,6 +5,7 @@ const port = process.env.PORT || 3000;
 
 const connect = require('./db/connect')
 
+app.use(express.static('./public'))
 const taskRouter = require('./routes/taskRouter');
 const authRouter = require('./routes/authRouter');
 
