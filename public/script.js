@@ -49,15 +49,26 @@ function makeTask(task){
     const idNode = document.createTextNode('id: ' + task._id)
     idElement.appendChild(idNode)
     
-    const complete = document.createElement('p')
-    const completeNode = document.createTextNode('complete: '+ task.complete)
-    complete.appendChild(completeNode)
+    const complete = document.createElement('div')
+    complete.classList.add('checkbox-container')
+    const completeLabel = document.createElement('label')
+    completeLabel.for = 'complete'
+    const completeLabelNode = document.createTextNode('Complete? ')
+    completeLabel.appendChild(completeLabelNode)
+    
+
 
     const completeCheck = document.createElement('input')
     completeCheck.setAttribute("type", "checkbox");
     completeCheck.checked = task.complete
     completeCheck.classList.add('completed-task-check')
+    complete.appendChild(completeLabel);
+    complete.appendChild(completeCheck);
     
+    // <div class="checkbox-container">
+    //     <label for="complete">Completed? </label>
+    //     <input type="checkbox" class="completed-task-check">
+    //  </div>
     const deleteBtn = document.createElement('button')
     deleteBtn.classList.add('delete-btn')
     const deleteNode = document.createTextNode('X')
@@ -71,7 +82,7 @@ function makeTask(task){
     div1.appendChild(header);
     div1.appendChild(idElement);
     div1.appendChild(complete)
-    div1.appendChild(completeCheck)
+    // div1.appendChild(completeCheck)
     div1.appendChild(deleteBtn)
     // div1.appendChild(updateBtn)
     tasksContainer.appendChild(div1)
@@ -144,14 +155,15 @@ async function deleteClickHandler(e){
 }
 
 async function editClickHandler(e){
-    let parent = e.target.parentNode;
-    let taskId = Array.from(parent.childNodes)[1].innerText.split(' ')[1];
-    let taskComplete = Array.from(parent.childNodes)[2].innerText.split(' ')[1];
-
-    try{
-        console.log(JWTtoken)
+    let checkboxDiv = e.target.parentNode;
+    let taskDiv = checkboxDiv.parentNode;
+    let taskId = Array.from(taskDiv.childNodes)[1].innerText.split(' ')[1];    
+    let taskComplete = Array.from(checkboxDiv.childNodes)[1].checked;
+    
+    try{        
         await axios.patch(`http://localhost:5000/api/tasks/${taskId}`,{
-            complete: taskComplete == 'true' ? false : true
+            complete: taskComplete
+            // complete: taskComplete == 'true' ? false : true
         },
         {   
             headers:{
