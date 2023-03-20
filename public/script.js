@@ -9,7 +9,7 @@ const taskDescription = document.getElementById('task');
 const complete = document.getElementById('complete');
 const addTask = document.getElementById('add-task')
 
-const getAllBtn = document.getElementById('get-all-btn')
+// const getAllBtn = document.getElementById('get-all-btn')
 
 
 const tasksContainer = document.getElementsByClassName('tasks-container')[0]
@@ -167,7 +167,7 @@ async function editClickHandler(e){
 
 addTask.addEventListener('submit', addTaskHandler)
 login.addEventListener('submit',loginHandler)
-getAllBtn.addEventListener('click', getAllTasks)
+// getAllBtn.addEventListener('click', getAllTasks)
 
 
 
