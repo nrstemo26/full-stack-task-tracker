@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header'
+import Tasks from './components/Tasks'
+import './App.css'
+
+import {useState} from 'react';
+
+const renderContent = {
+  'get': <Tasks/>,
+  'add': <h2>adding tasks</h2>,
+  'login': <h2>user login stuff</h2>
+}
 
 function App() {
+  const [activeTab, setActiveTab] = useState('get');
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <Header setActiveTab={setActiveTab}/>
+      <h1>hello nathan</h1>
+
+      {renderContent[activeTab]}
+      
+      
     </div>
   );
 }
