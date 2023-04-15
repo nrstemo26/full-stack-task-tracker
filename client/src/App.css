@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+
+.header-container{
+  display: flex;
+  background: navy;
+}
+
+.row{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
+.row > ul {
+  display: flex;
+  gap: 2rem;
+  list-style-type: none;
+  color: white;
+  padding-left: 0;  
+}
+
+.header-container a{
+  text-decoration: none;
+  color: white;
+}
