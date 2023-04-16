@@ -7,8 +7,8 @@ import './App.css'
 import {useState} from 'react';
 
 const renderContent = {
-  'get': <Tasks/>,
-  'add': <AddTaskForm />,
+  'get'  : <Tasks/>,
+  'add'  : <AddTaskForm/>,
   'login': <AuthForm/>
 }
 
