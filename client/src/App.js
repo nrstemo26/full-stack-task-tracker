@@ -1,13 +1,14 @@
 import Header from './components/Header'
 import Tasks from './components/Tasks'
 import AuthForm from  './components/AuthForm'
+import AddTaskForm from './components/AddTaskForm'
 import './App.css'
 
 import {useState} from 'react';
 
 const renderContent = {
   'get': <Tasks/>,
-  'add': <h2>adding tasks</h2>,
+  'add': <AddTaskForm />,
   'login': <AuthForm/>
 }
 
