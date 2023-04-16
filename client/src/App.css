@@ -1,3 +1,9 @@
+html{
+  --green: #539165;
+  --navy: #3F497F;
+  --gold: #F7c04A;
+  --cream: #f8f5e4;
+}
 .App {
   text-align: center;
 }
@@ -40,7 +46,7 @@
 
 .header-container{
   display: flex;
-  background: navy;
+  background: var(--navy);
 }
 
 .row{
@@ -61,3 +67,44 @@
   text-decoration: none;
   color: white;
 }
+
+.task-card{
+  border-radius: .5rem;
+  padding: .5em;
+  background-color: var(--green);
+  width: 80%;
+  
+  margin: 1rem auto;
+  /* margin: 1rem; */
+  
+
+}
+
+.form{
+  border: 4px solid var(--gold);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;  
+  margin: .5rem auto;
+  padding: 1rem;
+  gap: .5rem;
+  
+}
+
+.form__input{
+  font-size: 1.25em;
+  
+}
+.form__input > input{
+  margin-left: .25rem;
+
+}
+.form__btn{
+  border-radius: .5rem;
+  border: none;
+  background-color: var(--green) ;
+  padding: .5rem .75rem;
+  width: 80%;
+}
+
