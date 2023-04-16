@@ -1,7 +1,5 @@
 
 
-
-
 function Header({ setActiveTab }){
     const handleTabClick = (tab)=>{
         setActiveTab(tab)

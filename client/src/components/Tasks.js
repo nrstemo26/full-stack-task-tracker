@@ -25,6 +25,7 @@ function Tasks () {
 
     return(
         <div>
+            <h1>Welcome {tasksArr[1].user}!</h1>
             {tasksArr.map((item) => {
                 return <Task item={item}/>
             })
