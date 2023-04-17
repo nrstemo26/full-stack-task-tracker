@@ -24,7 +24,7 @@ function Tasks () {
         <div>
             <h1>Welcome {local.name}!</h1>
             {tasks.length > 0 ? tasks.map((item) => {
-                return <Task item={item}/>
+                return <Task key={item._id} item={item}/>
             }): <h2>no tasks yet</h2>
 
             }
