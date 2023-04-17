@@ -1,4 +1,6 @@
 import Task from './Task'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const tasksArr = [
     {
@@ -22,11 +24,29 @@ const tasksArr = [
 ]
 
 function Tasks () {
+    const local = JSON.parse(localStorage.getItem('user'))
+    
+    console.log(local.token)
+    const [tasks, setTasks] = useState([])
+
+    useEffect(()=>{
+        axios.get('http://localhost:5000/api/tasks/',{
+            headers: {
+                Authorization: `Bearer ${local.token}`
+            }
+        })
+            .then(res=>{
+                setTasks(res.data);
+            })
+            .catch(err=>{
+                console.log(err);
+            })
+    })
 
     return(
         <div>
-            <h1>Welcome {tasksArr[1].user}!</h1>
-            {tasksArr.map((item) => {
+            <h1>Welcome {local.name}!</h1>
+            {tasks.map((item) => {
                 return <Task item={item}/>
             })
 
