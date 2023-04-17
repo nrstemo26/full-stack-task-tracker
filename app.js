@@ -2,10 +2,15 @@ const express = require('express')
 const app = express();
 const env = require('dotenv').config();
 const port = process.env.PORT || 3000;
+const cors = require('cors');
 
 const connect = require('./db/connect')
 
-app.use(express.static('./public'))
+//enable cross origin resource sharing for all routes
+
+app.use(cors())
+
+// app.use(express.static('./public'))
 const taskRouter = require('./routes/taskRouter');
 const authRouter = require('./routes/authRouter');
 
