@@ -6,7 +6,6 @@ function AddTaskForm(){
     const [description, setDescription] = useState('');
 
     useEffect(()=>{
-        console.log('in use effect')
         const checkbox = document.getElementById('add-checkbox')
         checkbox.checked = complete;
 
@@ -17,14 +16,15 @@ function AddTaskForm(){
         
         
         if(description){
-            console.log('you created a task')
             //send request to server at this point
+
             console.log(complete, description)
+            //receives the request and resets everything so they can add more tasks
+
             setComplete(false)
             setDescription('')
             
         }
-        // console.log('email',email,'password: ',password)
         //other logic
 
     }
