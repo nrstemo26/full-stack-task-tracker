@@ -3,10 +3,6 @@ import axios from 'axios'
 
 
 function RegisterForm(){
-
-
-    //name email password retype password
-
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -32,10 +28,18 @@ function RegisterForm(){
             console.log(res)
             console.log(res.data)
             localStorage.setItem('user', JSON.stringify(res.data))
+            alert('user created')
+            
+            setName('')
+            setEmail('')
+            setPassword('')
+            setPassword2('')
         })
         .catch(err => {
             console.log(err)
         })
+
+
         
 
 
