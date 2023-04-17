@@ -1,6 +1,9 @@
 import {useState} from 'react'
+import axios from 'axios'
+
 
 function RegisterForm(){
+
 
     //name email password retype password
 
@@ -19,7 +22,23 @@ function RegisterForm(){
             console.log('passwords dont match')
             return null;
         }
-        console.log('you made a legal submit')
+
+        axios.post('http://localhost:5000/api/users/',{
+            name,
+            email,
+            password,
+        })
+        .then(res => {
+            console.log(res)
+            console.log(res.data)
+            localStorage.setItem('user', JSON.stringify(res.data))
+        })
+        .catch(err => {
+            console.log(err)
+        })
+        
+
+
         //submit the login and do some shit with actually
     }
     return(
