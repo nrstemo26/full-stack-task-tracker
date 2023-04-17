@@ -1,5 +1,7 @@
 html{
   --green: #539165;
+  --light-green: #78b289;
+  --dark-green: #3e6d4c;
   --navy: #3F497F;
   --gold: #F7c04A;
   --cream: #f8f5e4;
@@ -106,5 +108,13 @@ html{
   background-color: var(--green) ;
   padding: .5rem .75rem;
   width: 80%;
+}
+.form__btn:hover{
+  background-color: var(--light-green);
+  transform: scale(1.02);
+}
+.form__btn:active{
+  background-color: var(--dark-green);
+  transform: scale(0.98);
 }
 
