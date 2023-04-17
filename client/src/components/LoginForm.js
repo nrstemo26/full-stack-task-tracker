@@ -15,7 +15,9 @@ function LoginForm (){
         })
             .then(res=>{
                 console.log(res)
+                
                 console.log(res.data)
+                localStorage.setItem('user', JSON.stringify(res.data))
             })
             .catch(err =>{
                 console.log(err)
