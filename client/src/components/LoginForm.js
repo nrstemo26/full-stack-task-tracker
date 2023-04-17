@@ -7,9 +7,8 @@ function LoginForm (){
 
     const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log('email',email,'password: ',password)
-
-        axios.post('http://localhost:5000/api/users/login',{
+        
+        axios.post('http://localhost:5000/api/users/login', {
             email,
             password
         })
