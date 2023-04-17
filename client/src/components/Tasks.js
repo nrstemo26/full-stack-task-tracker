@@ -5,7 +5,7 @@ import axios from 'axios'
 function Tasks () {
     const local = JSON.parse(localStorage.getItem('user'))
     const [tasks, setTasks] = useState([])
-
+    
     useEffect(()=>{
         axios.get('http://localhost:5000/api/tasks/',{
             headers: {
@@ -23,9 +23,12 @@ function Tasks () {
     return(
         <div>
             <h1>Welcome {local.name}!</h1>
-            {tasks.length > 0 ? tasks.map((item) => {
-                return <Task key={item._id} item={item}/>
-            }): <h2>no tasks yet</h2>
+            {tasks.length > 0 ? (tasks.map((item) => {
+                return <Task 
+                key={item._id} 
+                item={item}
+                />
+            })): <h2>no tasks yet</h2>
 
             }
     
