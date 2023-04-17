@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import axios from 'axios';
 
 function LoginForm (){
     const [email,setEmail] = useState('');
@@ -7,7 +8,19 @@ function LoginForm (){
     const handleSubmit = (e)=>{
         e.preventDefault();
         console.log('email',email,'password: ',password)
-        //other logic
+
+        axios.post('http://localhost:5000/api/users/login',{
+            email,
+            password
+        })
+            .then(res=>{
+                console.log(res)
+                console.log(res.data)
+            })
+            .catch(err =>{
+                console.log(err)
+            })
+        
     }
     return(
         <form onSubmit={handleSubmit}  className='form form--login'>
