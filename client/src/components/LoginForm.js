@@ -7,7 +7,7 @@ function LoginForm (){
 
     const handleSubmit = (e)=>{
         e.preventDefault();
-        
+
         axios.post('http://localhost:5000/api/users/login', {
             email,
             password
@@ -17,6 +17,10 @@ function LoginForm (){
                 
                 console.log(res.data)
                 localStorage.setItem('user', JSON.stringify(res.data))
+
+                alert('logged in')
+                setEmail('')
+                setPassword('')
             })
             .catch(err =>{
                 console.log(err)
