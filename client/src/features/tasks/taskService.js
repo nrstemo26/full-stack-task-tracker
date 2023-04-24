@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API_URL = 'http://localhost:5000/api/tasks/'
 
-const createGoal = async (taskData, token) => {
+const createTask = async (taskData, token) => {
     const config = {
         headers : {
             Authorization : `Bearer ${token}`,
@@ -40,7 +40,7 @@ const deleteTask = async (taskId, token) => {
 }
 
 const taskService = {
-    createGoal,
+    createTask,
     getTasks,
     deleteTask,
 }

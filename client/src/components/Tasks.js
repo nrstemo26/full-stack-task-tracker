@@ -18,7 +18,7 @@ function Tasks () {
     )
 
     const local = JSON.parse(localStorage.getItem('user'))
-    console.log(local)
+    // console.log(local)
     // const [tasks, setTasks] = useState([])
     
     useEffect(()=>{

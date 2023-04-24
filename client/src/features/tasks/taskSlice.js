@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import taskService from './taskService'
 
+
+
 const initialState = {
     tasks: [],
     isError: false,
@@ -13,8 +15,8 @@ export const createTask = createAsyncThunk(
     'task/create',
     async (taskData, thunkAPI)=>{
         try{
-            const token = thunkAPI.getState.auth.user.token;
-            return await taskService.createGoal(taskData, token);
+            const token = thunkAPI.getState().auth.user.token;
+            return await taskService.createTask(taskData, token);
         }catch(error){
             const message =
             (error.response &&
