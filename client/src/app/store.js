@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 //import reducers from slices
-import goalReducer from '../features/goals/goalSlice'
+import taskReducer from '../features/tasks/taskSlice'
 import authReducer from '../features/auth/authSlice'
 
 //store is made up of slices and the slices are stored elsewhere
@@ -8,6 +8,6 @@ import authReducer from '../features/auth/authSlice'
 export const store = configureStore({
     reducer: {
         auth: authReducer,
-        goals: goalReducer,  
+        task: taskReducer,  
     },
 })
