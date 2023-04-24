@@ -1,31 +1,26 @@
 import {useState} from 'react';
-import axios from 'axios';
+
+import {useDispatch } from 'react-redux';
+import { login } from '../features/auth/authSlice'
+
+
 
 function LoginForm (){
     const [email,setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const dispatch = useDispatch();
+
+
     const handleSubmit = (e)=>{
         e.preventDefault();
-
-        axios.post('http://localhost:5000/api/users/login', {
+        const userData = {
             email,
-            password
-        })
-            .then(res=>{
-                console.log(res)
-                
-                console.log(res.data)
-                localStorage.setItem('user', JSON.stringify(res.data))
+            password,
+        }
 
-                alert('logged in')
-                setEmail('')
-                setPassword('')
-            })
-            .catch(err =>{
-                console.log(err)
-            })
-        
+        dispatch(login(userData))
+
     }
     return(
         <form onSubmit={handleSubmit}  className='form form--login'>
