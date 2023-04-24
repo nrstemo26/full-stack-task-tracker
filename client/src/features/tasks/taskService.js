@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'api/tasks/'
+const API_URL = 'http://localhost:5000/api/tasks/'
 
 const createGoal = async (taskData, token) => {
     const config = {
@@ -39,10 +39,10 @@ const deleteTask = async (taskId, token) => {
 
 }
 
-const goalService = {
+const taskService = {
     createGoal,
     getTasks,
     deleteTask,
 }
 
-export default goalService;
+export default taskService;

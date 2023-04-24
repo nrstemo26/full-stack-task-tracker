@@ -28,7 +28,7 @@ export const createTask = createAsyncThunk(
 )
 
 // Get user goals
-export const getTask = createAsyncThunk(
+export const getTasks = createAsyncThunk(
     'tasks/getAll',
     async (_, thunkAPI) => {
       try {
@@ -86,15 +86,15 @@ export const taskSlice = createSlice({
         state.isError = true
         state.message = action.payload
       })
-      .addCase(getTask.pending, (state) => {
+      .addCase(getTasks.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(getTask.fulfilled, (state, action) => {
+      .addCase(getTasks.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
         state.tasks = action.payload
       })
-      .addCase(getTask.rejected, (state, action) => {
+      .addCase(getTasks.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
