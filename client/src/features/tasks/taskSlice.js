@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import taskService from './taskService'
 
 const initialState = {
-    goals: [],
+    tasks: [],
     isError: false,
     isSuccess: false,
     isLoading: false,
@@ -10,11 +10,11 @@ const initialState = {
 }
 
 export const createTask = createAsyncThunk(
-    'goals/create',
-    async (goalData, thunkAPI)=>{
+    'task/create',
+    async (taskData, thunkAPI)=>{
         try{
             const token = thunkAPI.getState.auth.user.token;
-            return await taskService.createGoal(goalData, token);
+            return await taskService.createGoal(taskData, token);
         }catch(error){
             const message =
             (error.response &&
@@ -33,7 +33,7 @@ export const getTask = createAsyncThunk(
     async (_, thunkAPI) => {
       try {
         const token = thunkAPI.getState().auth.user.token
-        return await taskService.getGoals(token)
+        return await taskService.getTasks(token)
       } catch (error) {
         const message =
           (error.response &&
@@ -52,7 +52,7 @@ export const deleteTask = createAsyncThunk(
     async (id, thunkAPI) => {
       try {
         const token = thunkAPI.getState().auth.user.token
-        return await taskService.deleteGoal(id, token)
+        return await taskService.deleteTask(id, token)
       } catch (error) {
         const message =
           (error.response &&
@@ -66,7 +66,7 @@ export const deleteTask = createAsyncThunk(
 )
 
 export const taskSlice = createSlice({
-    name: 'goal',
+    name: 'task',
     initialState,
     reducers:{
         reset: (state) => initialState,
@@ -79,7 +79,7 @@ export const taskSlice = createSlice({
       .addCase(createTask.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.goals.push(action.payload)
+        state.tasks.push(action.payload)
       })
       .addCase(createTask.rejected, (state, action) => {
         state.isLoading = false
@@ -92,7 +92,7 @@ export const taskSlice = createSlice({
       .addCase(getTask.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.goals = action.payload
+        state.tasks = action.payload
       })
       .addCase(getTask.rejected, (state, action) => {
         state.isLoading = false
@@ -105,7 +105,7 @@ export const taskSlice = createSlice({
       .addCase(deleteTask.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.goals = state.goals.filter(
+        state.tasks = state.tasks.filter(
           (task) => task._id !== action.payload.id
         )
       })
