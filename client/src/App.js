@@ -14,7 +14,7 @@ const renderContent = {
 }
 
 function App() {
-  const [activeTab, setActiveTab] = useState('add');
+  const [activeTab, setActiveTab] = useState('login');
   
   return (
     <div className="App">
