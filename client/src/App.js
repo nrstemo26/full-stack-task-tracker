@@ -2,9 +2,10 @@ import Header from './components/Header'
 import Tasks from './components/Tasks'
 import AuthForm from  './components/AuthForm'
 import AddTaskForm from './components/AddTaskForm'
-import './App.css'
 
 import {useState} from 'react';
+
+import './App.css'
 
 const renderContent = {
   'get'  : <Tasks/>,
@@ -13,14 +14,12 @@ const renderContent = {
 }
 
 function App() {
-  const [activeTab, setActiveTab] = useState('add');
+  const [activeTab, setActiveTab] = useState('login');
+  
   return (
     <div className="App">
-
       <Header setActiveTab={setActiveTab}/>
-      
-      {renderContent[activeTab]}
-      
+      {renderContent[activeTab]} 
       
     </div>
   );

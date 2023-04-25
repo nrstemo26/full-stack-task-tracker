@@ -1,5 +1,6 @@
 import {useState} from 'react'
-import axios from 'axios'
+import { useDispatch } from 'react-redux';
+import { register } from '../features/auth/authSlice'
 
 
 function RegisterForm(){
@@ -7,6 +8,9 @@ function RegisterForm(){
     const [email,setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [password2, setPassword2] = useState('');
+    const [isSubmitted, setIsSubmitted] = useState(false)
+
+    const dispatch = useDispatch();
 
     const handleSubmit = (e)=>{
         e.preventDefault();
@@ -19,33 +23,25 @@ function RegisterForm(){
             return null;
         }
 
-        axios.post('http://localhost:5000/api/users/',{
+        const userData = {
             name,
             email,
-            password,
-        })
-        .then(res => {
-            console.log(res)
-            console.log(res.data)
-            localStorage.setItem('user', JSON.stringify(res.data))
-            alert('user created')
-            
-            setName('')
-            setEmail('')
-            setPassword('')
-            setPassword2('')
-        })
-        .catch(err => {
-            console.log(err)
-        })
+            password
+        }
 
-
-        
-
-
-        //submit the login and do some shit with actually
+        dispatch(register( userData ))
+        //clear data after register
+        setEmail('')
+        setName('')
+        setPassword('')
+        setPassword2('')
+        setIsSubmitted(true)
     }
+
+
     return(
+        <>
+        <h2>{isSubmitted? 'Thanks for registering click on the add tasks or your tasks page to start doing stuff' :''}</h2>
         <form onSubmit={handleSubmit}  className='form form--login'>
             <label className='form__input'>
                 Name: 
@@ -66,6 +62,7 @@ function RegisterForm(){
 
             <button type='submit' className='form__btn'>Register User</button>
         </form>
+        </>
     )
 }
 
