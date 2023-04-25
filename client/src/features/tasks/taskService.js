@@ -38,11 +38,26 @@ const deleteTask = async (taskId, token) => {
     return response.data;
 
 }
+const updateTask = async (taskData, token) => {
+    const taskId = taskData._id;
+        
+    const config = {
+        headers : {
+            Authorization : `Bearer ${token}`,
+        },
+    }
+    
+    const response = await axios.patch(API_URL + taskId, taskData, config);
+    
+    return response.data;
+
+}
 
 const taskService = {
     createTask,
     getTasks,
     deleteTask,
+    updateTask,
 }
 
 export default taskService;
