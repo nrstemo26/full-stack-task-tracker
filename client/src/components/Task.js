@@ -26,7 +26,7 @@ function Task ({ item }) {
             <h1>{item.text}</h1>
             <div className='task-complete-container'>
                 <h2>{taskCompleted ? 'done':'not done'}</h2>
-                <button className='btn' onClick={() => handleComplete()}>finished</button>
+                <button className='btn' onClick={() => handleComplete()}>{taskCompleted? 'actually is it not done?': 'finish the task?'}</button>
             </div>
             <h3>ID: {item._id}</h3>
             <button className='btn btn-delete' onClick={()=> handleDelete()}>X</button>
