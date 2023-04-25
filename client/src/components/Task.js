@@ -1,10 +1,20 @@
 import { useDispatch } from 'react-redux'
-import { deleteTask } from '../features/tasks/taskSlice'
+import { useState } from 'react'
+import { deleteTask, updateTask } from '../features/tasks/taskSlice'
 
 function Task ({ item }) {
+    const [taskCompleted, setTaskCompleted] = useState(item.complete)
     const dispatch = useDispatch()
     
-    const handleComplete = ()=>{
+    
+    const handleComplete = async () => {
+        const userData = {
+            ...item,
+            complete: !item.complete
+        }
+        
+        await dispatch(updateTask( userData ))
+        setTaskCompleted(!taskCompleted)
         console.log('finished now')
     }
     const handleDelete = () => {
@@ -12,12 +22,12 @@ function Task ({ item }) {
     }
 
     return(
-        // <div className="task-card" onClick={e => handleClick(e)}  >
         <div className="task-card"  >
             <h1>{item.text}</h1>
-            <h2>{item.complete? 'done':'not done'}
-            <button className='btn' onClick={() => handleComplete()}>finished</button>
-            </h2>
+            <div className='task-complete-container'>
+                <h2>{taskCompleted ? 'done':'not done'}</h2>
+                <button className='btn' onClick={() => handleComplete()}>finished</button>
+            </div>
             <h3>ID: {item._id}</h3>
             <button className='btn btn-delete' onClick={()=> handleDelete()}>X</button>
         </div>
