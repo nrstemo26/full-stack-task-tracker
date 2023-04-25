@@ -15,7 +15,6 @@ function Task ({ item }) {
         
         await dispatch(updateTask( userData ))
         setTaskCompleted(!taskCompleted)
-        console.log('finished now')
     }
     const handleDelete = () => {
         dispatch(deleteTask(item._id))
