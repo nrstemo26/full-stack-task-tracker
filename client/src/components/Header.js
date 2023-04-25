@@ -9,11 +9,11 @@ function Header({ setActiveTab }){
         <div className='header-container'>
             <div className='row'>
                 <ul>
-                    <li onClick={()=> handleTabClick('get')}><a href="#">Get tasks</a></li>
+                    <li onClick={()=> handleTabClick('get')}><a href="#">Your tasks</a></li>
                     <li onClick={()=> handleTabClick('add')}><a href="#"> Add New Tasks</a></li>
                 </ul>
                 <ul>
-                    <li onClick={()=> handleTabClick('login')}><a href="#">login/register</a></li>
+                    <li onClick={()=> handleTabClick('login')}><a href="#">Login/Register</a></li>
                 </ul>
             </div>
         </div>
